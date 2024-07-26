@@ -5,7 +5,7 @@ class Node{
     }
 }
 
-class LinkedList{
+class LL{
     constructor(){
         this.head = null;
         this.size = 0;
@@ -39,21 +39,21 @@ class LinkedList{
             while(prev.next){
                 prev = prev.next;
             }
-            prev.next = node;
+            prev.next = node;  // at some point la prev.next ye illama poogum. loop vittu velila vandrum (exit aagidum). Apo, prev.next = node; kudukurom
         }
         this.size++
     }
 
     insert(value, index){
         if(index<0 || index>this.size){
-            return 
+            return null;
         }
         if(index === 0){
-            this.prepend(value)
+            this.prepend(value);
         }else{
-            const node = new Node(value);
+            const node = new Node(value);  // Node vangurom, let prev edukrom, for loop use pandrom, asign pandrom.
             let prev = this.head;
-            for(let i=0; i<index-1; i++){
+            for (let i=0; i<index-1; i++){
                 prev = prev.next;
             }
             node.next = prev.next;
@@ -64,99 +64,107 @@ class LinkedList{
 
     removeFrom(index){
         if(index<0 || index>this.size){
-            return 
+            return null;
         }
         let removeNode;
         if(index === 0){
             removeNode = this.head;
             this.head = removeNode.next;
         }else{
-           let prev = this.head;
-           for (let i=0; i<index-1; i++){
+            let prev = this.head;
+            for(let i=0; i<index-1; i++){
                 prev = prev.next;
-           }
-           removeNode = prev.next;
-           prev.next = removeNode.next;
+            }
+            removeNode = prev.next
+            prev.next = removeNode.next;
         }
         this.size--
-        return removeNode
+        return removeNode;
     }
 
     removeValue(value){
         if(this.isEmpty()){
             return null;
         }
-        if(this.head.value === value){
+
+        if(value === this.head.value){
             this.head = this.head.next;
             this.size--;
             return value;
         }else{
-            let prev = this.head;
-            while(prev.next && prev.next.value !== value){
-                prev = prev.next;
+            let curr = this.head;
+            while(curr.next && curr.next.value !== value){
+                curr = curr.next;
             }
-            if(prev.next){
-                const removeNode = prev.next;
-                prev.next = removeNode.next;
+            if(curr.next){
+                const removeNode = curr.next;
+                curr.next = removeNode.next;
                 this.size--;
-                return removeNode;
+                return value;
             }
             return null;
         }
-
     }
 
     search(value){
         if(this.isEmpty()){
             return null;
         }
-        let i=0;
+        let i = 0;
         let curr = this.head;
         while(curr){
-            if(curr.value === value){
+            if(value === curr.value){
                 return i;
             }
             curr = curr.next;
-            i++;
+            i++
         }
-        return -1;  // If not found the given value, we return -1
+        return -1;
     }
 
     reverse(){
-        let prev = null;
+        let prev = null
         let curr = this.head;
         while(curr){
             let next = curr.next;
-            curr.next = prev;
+            curr.next = prev;  
             prev = curr;
-            curr = next;  // Double process. It connects the 129th line. [  let next = curr.next; ]
+            curr = next;
         }
         this.head = prev;
     }
+    
 
     print(){
         if(this.isEmpty()){
-            console.log('List is Empty');
-        } else{
-            let curr = this.head;
-            let listedValues = ''
-            while(curr){
-                listedValues += `${curr.value} `
-                curr = curr.next
-            }
-            console.log(listedValues);
+            console.log('List is empty');
+            return
         }
+        let curr = this.head;
+        let listValues = ''
+        while(curr){
+            listValues += `${curr.value} `
+            curr = curr.next;
+        }
+        console.log(listValues);
     }
+
 }
 
-const list = new LinkedList();
 
-// console.log(list.isEmpty());
-list.prepend(10);
-list.append(20);
-list.append(30);
-list.append(40);
-list.insert(90, 2)
+const list = new LL();
+
+console.log(list.isEmpty());
+list.prepend(10)
+list.append(20)
+list.append(30)
+list.append(40)
 list.print()
-console.log(list.getSize());
 
+list.insert(22, 2);
+list.print()
+
+list.removeValue(22);
+list.print();
+list.reverse()
+list.print()
