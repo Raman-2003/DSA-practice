@@ -40,28 +40,6 @@ console.log(binarySearch([-5, 2, 4, 6, 10], 10));
 console.log(binarySearch([-5, 2, 4, 6, 10], 20));
 
 
-function recursiveBinary(array, target){
-    return binarySearch(array, target, 0, array.length-1)
-}
-
-function search(array, target, leftIndex, rightIndex){
-        if(leftIndex > rightIndex){
-            return null;
-        }
-        let middleIndex = Math.floor((leftIndex+rightIndex)/2);
-        if(target === array[middleIndex]){
-            return middleIndex
-        }
-        if(target < array[middleIndex]){
-            return search(array, target, leftIndex, middleIndex-1)
-        }else{
-            return search(array, target, middleIndex+1, rightIndex)
-        }
-}
-
-
-
-
 
 function recursiveBinary(array, target){
     return search(array, target, 0, array.length-1);
@@ -85,3 +63,33 @@ function search(array, target, left, right){
 console.log(recursiveBinary([-5, 2, 4, 6, 10], 6));
 console.log(recursiveBinary([-5, 2, 4, 6, 10], 10));
 console.log(recursiveBinary([-5, 2, 4, 6, 10], 20));
+console.log();
+console.log();
+console.log();
+
+
+
+
+function findMaxOccurrence(array){
+    let MaxObj = {};
+    for (let num of array){
+        if(MaxObj[num]){
+            MaxObj[num]++;
+        }else{
+            MaxObj[num] = 1;
+        }
+    }
+
+    let maxCount = 0;
+    let maxNumber = null;
+
+    for(let key in MaxObj){
+        if(MaxObj[key]>maxCount){
+            maxCount = MaxObj[key];
+            maxNumber = key;
+        }
+    }
+    return maxNumber;
+}
+
+console.log(findMaxOccurrence([5,10,15, 20, 25, 25, 25, 30]));

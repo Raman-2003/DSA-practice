@@ -1,6 +1,6 @@
 // Fibonacci formuls => Fibonacci = Fib(n-1) + Fib(n-2);
 
-/*
+
 
 // General
 function fibonacci(n){
@@ -114,7 +114,7 @@ function summation(n){
 console.log(summation(5));  // 5+4+3+2+1
 console.log(summation(55));
 
-*/
+
 
 // Fibonacci of 5  = 5  fibonacci = fibonacii[n-1] + fibonacci[n-2]
 // Factorial of 5  = 120 recursion = n * recursion (n-1)
