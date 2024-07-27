@@ -9,7 +9,7 @@ console.log(search([1,2,3,4,5], 32));
 
 
 /*
-Why Constant Time Complexity Is Not Possible Here.
+Why Constant Time Complexity Is Not Possible array.
 
 Finding the maximum element in an UNSORTED array cannot be done in constant time O(1).
 because you need to check each element at least once to ensure it is not larger than 
