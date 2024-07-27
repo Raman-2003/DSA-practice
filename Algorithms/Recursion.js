@@ -5,7 +5,7 @@ function recursion(n){
     }
 
     return n*recursion(n-1)
-}
+} 
 
 console.log(recursion(4));
 console.log(recursion(5));
@@ -54,7 +54,7 @@ function Prime(n){
     if(n<2){
         return false;
     }
-    for(i=2; i<= Math.sqrt(n); i++){  // It reduce the number of loop running times also cur it mostly.
+    for(i=2; i<= Math.sqrt(n); i++){  // It reduce the number of loop running times also cut it mostly.
         if(n%i===0){
             return false;
         }

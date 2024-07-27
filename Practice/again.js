@@ -171,23 +171,3 @@
 // list.print()
 
 
-function binarySearch(array, target){
-       let left = 0; // 0
-       let right = array.length-1;  //100
-       while(left<=right){
-            let middleIndex = Math.floor(left+right/2);
-            if(target === array[middleIndex]){
-                return middleIndex;
-            }
-            if(target < array[middleIndex]){
-                right = middleIndex-1
-            }else{
-                left = middleIndex+1;
-            }
-       }
-       return -1;
-}
-
-console.log(binarySearch([-5, 2, 4, 6, 10], 6));  //3
-console.log(binarySearch([-5, 2, 4, 6, 10], 10)); // 4
-console.log(binarySearch([-5, 2, 4, 6, 10], 20)); // -1

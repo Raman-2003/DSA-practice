@@ -2,7 +2,7 @@
 
 
 
-// General
+// General 
 function fibonacci(n){
     if(n <= 1){
         return n;
@@ -67,32 +67,6 @@ fibonacci(7) = 13
 fibonacci(8) = 21
 fibonacci(9) = 34
 fibonacci(10) = 55
-
-
-
-
-// Not efficient
-function fibonacci(n){
-    if(n==0){
-        return 0;
-    }
-    if(n==1){
-        return 1;
-    }
-
-    for(let i=2; i<=n; i++){
-        return fibonacci(n-1) + fibonacci(n-2)
-    }
-
-}
-
-console.log(fibonacci(0));
-console.log(fibonacci(1));
-console.log(fibonacci(2));
-console.log(fibonacci(3));
-console.log(fibonacci(4));
-console.log(fibonacci(55));  // Here, we didn't store the values also it calculates values at every time and it is a linear time complexity.
-
 
 
 function fibonacci(n){

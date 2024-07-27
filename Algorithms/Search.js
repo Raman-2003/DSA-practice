@@ -12,7 +12,7 @@ function linearSearch(array, target){
     }
     return -1;
 }
-
+ 
 console.log(linearSearch(array, target));  // O(n) means this is a linear time comlpexity also it is not efficient.
 
 
@@ -91,5 +91,31 @@ function findMaxOccurrence(array){
     }
     return maxNumber;
 }
+
+console.log(findMaxOccurrence([5,10,15, 20, 25, 25, 25, 30]));
+
+
+function findMaxOccurrence(array){
+    const obj = {}
+    for(let num of array){
+        if(obj[num]){
+            obj[num]++
+        }else{
+            obj[num]=1;
+        }
+    }
+
+    let maxCount = 0;
+    let maxNumber = 0;
+
+    for(let key in obj){
+        if(obj[key]>maxCount){
+            maxCount = obj[key];
+            maxNumber = key;
+        }
+    }
+    return maxNumber;
+}
+
 
 console.log(findMaxOccurrence([5,10,15, 20, 25, 25, 25, 30]));
