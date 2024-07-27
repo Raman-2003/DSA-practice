@@ -17,7 +17,7 @@ console.log(set);
 console.log(set.has(2)); // true
 console.log(set.has(22)); // false;
 
-set.delete(6);
+set.delete(3);
 console.log(set);
 
 set.clear();
@@ -32,3 +32,41 @@ clear method    => Constant time
 set.size()      => Constant time
 forEach => Linear time
 */
+
+
+// const str = "This very beautiful";
+// function find(){
+//     function findLargestWord(str) {
+//         let maxLength = 0;
+//         let maxWord = "";
+//         let currentLength = 0;
+//         let currentWord = "";
+    
+//         for (let i = 0; i < str.length; i++) {
+//             let char = str[i];
+//             if (char !== ' ') {
+//                 currentWord += char;
+//                 currentLength++;
+//             } else {
+//                 if (currentLength > maxLength) {
+//                     maxLength = currentLength;
+//                     maxWord = currentWord;
+//                 }
+//                 currentWord = "";
+//                 currentLength = 0;
+//             }
+//         }
+    
+//         // Check the last word
+//         if (currentLength > maxLength) {
+//             maxWord = currentWord;
+//         }
+    
+//         return maxWord;
+//     }
+    
+//     const str = "This is very beautiful";
+//     console.log(findLargestWord(str)); // Output: "beautiful"
+    
+// }
+

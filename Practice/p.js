@@ -497,3 +497,4 @@ function fibonaccis(num){
     return fib[num]
 }
 console.log(fibonaccis([55]));
+

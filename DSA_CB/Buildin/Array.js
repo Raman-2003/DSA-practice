@@ -15,3 +15,6 @@ array.unshift(1)
 console.log(array);
 
 // Shift and Unshift methods are Linear time complexties. O(n). Because whenever we perform shift and unshifft, it again reforms the index position and maintain a proper index.
+
+
+
