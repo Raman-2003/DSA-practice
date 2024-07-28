@@ -19,6 +19,8 @@ console.log();
 console.log();
 console.log();
 
+
+// Use custom methods
 function CheckAnagramUusingCustomLogic(str1, str2){
     // convert lowercasse and remove non-alphabetic characters.
     function cleanString(str){
@@ -65,3 +67,4 @@ console.log(AnagramUsingBuildin('Tab', 'Bat'));  // true
 console.log(AnagramUsingBuildin('Ice', 'Nice'));  // false
 console.log(AnagramUsingBuildin('aab', 'aaz'));  // false
 console.log(AnagramUsingBuildin('ayalamlam', 'malayalam'));  // true
+
