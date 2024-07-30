@@ -468,18 +468,66 @@
 // console.log(findMaxElement([5,6,7,8,8,8,8,8]));
 
 
-function reverseArray(array){
-    let start = 0;
-    let end = array.length-1;
 
-    while(start<end){
-        let temp = array[start];
-        array[start] = array[end];
-        array[end] = temp;
-        start++
-        end-- 
+// // Swapping is a good option for this one compare with prev and next
+// function reverseArray(array){
+//     let start = 0;
+//     let end = array.length-1;
+
+//     while(start<end){
+//         let temp = array[start];
+//         array[start] = array[end];
+//         array[end] = temp;
+//         start++
+//         end-- 
+//     }
+//     return array
+// }
+
+// console.log(reverseArray([1,2,3,4,5]));
+
+
+// // Count occurence of the target element
+// function countOccurence(array, value){
+//     let count = 0;
+//     for(let i=0; i<array.length; i++){
+//         if(array[i] === value){
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// console.log(countOccurence([1,2,3,3,3,3,3,4,5], 3));
+
+
+
+function removeDup(array){
+    let unique = [];
+
+    for(let i=0; i<array.length; i++){
+        if(!unique.includes(array[i])){
+            unique.push(array[i])
+        }
     }
-    return array
+    return unique;
 }
 
-console.log(reverseArray([1,2,3,4,5]));
+console.log(removeDup([1,2,3,3,3,4,4,5]));
+
+
+
+function newWaytoRemoveDup(array){
+    const seen = new Set();
+
+    for(let i=0; i<array.length; i++){
+        if(seen.has(array[i])){
+            continue;
+        }else{
+            seen.add(array[i])
+        }
+    }
+    return seen;
+}
+
+console.log(newWaytoRemoveDup([1,2,3,3,3,4,4,5]));
