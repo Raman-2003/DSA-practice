@@ -418,27 +418,68 @@
 // console.log(binarySearch([-5, 2, 4, 6, 10], 20));
 
 
-function recursiveBinary(array, target){
-    return search(array, target, 0, array.length-1)
-}
+// function recursiveBinary(array, target){
+//     return search(array, target, 0, array.length-1)
+// }
 
 
-function search(array, target, left, right){
-    while(left<=right){
-        let middleIndex = Math.floor((left+right)/2);
-        if(target === array[middleIndex]){
-            return middleIndex;
-        }
-        if(target < array[middleIndex]){
-            return search(array, target, left, middleIndex-1)
-        }else{
-            return search(array, target, middleIndex+1, right);
-        }
+// function search(array, target, left, right){
+//     while(left<=right){
+//         let middleIndex = Math.floor((left+right)/2);
+//         if(target === array[middleIndex]){
+//             return middleIndex;
+//         }
+//         if(target < array[middleIndex]){
+//             return search(array, target, left, middleIndex-1)
+//         }else{
+//             return search(array, target, middleIndex+1, right);
+//         }
+//     }
+//     return -1
+// }
+
+// console.log(recursiveBinary([-5, 2, 4, 6, 10], 6));
+// console.log(recursiveBinary([-5, 2, 4, 6, 10], 10));
+// console.log(recursiveBinary([-5, 2, 4, 6, 10], 20));
+// console.log();
+
+
+// function findMaxElement(array){
+//     let obj = {}
+//     for(let num of array){
+//         if(obj[num]){
+//             obj[num]++
+//         }else{
+//             obj[num] = 1;
+//         }
+//     }
+
+//     let maxCount = 0;  // Remember here it needs to = 0 for swapping
+//     let maxNumber= null; 
+//     for(let key in obj){
+//         if(obj[key]>maxCount){
+//             maxCount = obj[key];
+//             maxNumber = key;
+//         }
+//     }
+//     return maxNumber;
+// }
+
+// console.log(findMaxElement([5,6,7,8,8,8,8,8]));
+
+
+function reverseArray(array){
+    let start = 0;
+    let end = array.length-1;
+
+    while(start<end){
+        let temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+        start++
+        end-- 
     }
-    return -1
+    return array
 }
 
-console.log(recursiveBinary([-5, 2, 4, 6, 10], 6));
-console.log(recursiveBinary([-5, 2, 4, 6, 10], 10));
-console.log(recursiveBinary([-5, 2, 4, 6, 10], 20));
-console.log();
+console.log(reverseArray([1,2,3,4,5]));
