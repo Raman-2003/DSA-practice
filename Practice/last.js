@@ -531,3 +531,23 @@ function newWaytoRemoveDup(array){
 }
 
 console.log(newWaytoRemoveDup([1,2,3,3,3,4,4,5]));
+
+
+// Practical fail practice
+
+function mergeTwoArraysWithoutBuildinMethod(array1, array2){
+        let mergedArray = [];
+        let i=0; j=0;
+        while(i<=array1.length && j<array2.length){  // = is must heree to keep maintains the adjacant value joining
+            if(array1[i]<array2[j]){
+                mergedArray.push(array1[i]);
+                i++;
+            }else{
+                mergedArray.push(array2[j]);
+                j++;
+            }
+        }
+        return mergedArray;
+}
+
+console.log(mergeTwoArraysWithoutBuildinMethod([1,2,3], [4,5,6]));
