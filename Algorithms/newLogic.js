@@ -5,37 +5,37 @@ class Node{
     }
 }
 
-class linkedList{
+class LinkedList{
     constructor(){
         this.head = null;
-        this.size = 0;
+        this.size = 0
     }
 
     add(value){
-        const newNode = new Node(value)  // create a new node using Node class
+        const node = new Node(value);
         if(this.head === null){
-            this.head = newNode;
+            this.head = node;
         }else{
             let current = this.head;
             while(current.next !== null){
-                current = current.next
+                current = current.next;
             }
-            current.next = newNode;
+            current.next = node;
         }
         this.size++
     }
 
-    removeDuplicates(){
+    removeDupicates(){
         if(this.head === null){
-            return;
+            return null;
         }
         let current = this.head;
         let seenValues = new Set();
         seenValues.add(current.value);
 
         while(current.next !== null){
-            if(seenValues.has(current.next.value)){
-                current.next = current.next.next;
+            if(seenValues.has(current.next.value)){  // has(current.next.value) because, we have an array of Set values. So we need to use the .value instead of .next 
+                current = current.next.next;
                 this.size--
             }else{
                 seenValues.add(current.next.value);
@@ -44,8 +44,7 @@ class linkedList{
         }
     }
 
-    printList(){
-        // here we didn't give the base case;
+    print(){
         let current = this.head;
         let result = [];
         while(current !== null){
@@ -54,16 +53,13 @@ class linkedList{
         }
         console.log(result);
     }
-
 }
 
-const list = new linkedList();
+
+const list = new LinkedList();
+
 list.add(10)
 list.add(20)
-list.add(30)
-list.add(30)
-list.add(30)
-list.printList()
+list.add(30);
 
-list.removeDuplicates()
-list.printList()
+list.print()

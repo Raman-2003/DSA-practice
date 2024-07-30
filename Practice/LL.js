@@ -114,7 +114,7 @@ class LL{
         let curr = this.head;
         while(curr){
             if(value === curr.value){
-                return i;
+                return i; 
             }
             curr = curr.next;
             i++
