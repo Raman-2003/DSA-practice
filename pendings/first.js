@@ -400,3 +400,53 @@ function zero(array){
 }
 
 console.log(zero([1,20,3,0,4,50,0,6,0,50,67]));
+
+
+// Continuous Subsequent elements 
+function consecutive(array){
+    let start = 0;
+    let arrays = [];
+
+    for(let i=0; i<array.length; i++){
+        if(arrays.includes(array[i])){
+             arrays[start];
+        }else{
+            arrays.push(array[i])
+        }
+    }
+    return arrays
+}
+
+console.log(consecutive([1,2,3,1,2,3,4,1,2,4,5,6]));
+
+console.log();
+console.log();
+console.log();
+console.log();
+
+function countOneAndTwo(array){
+    let countObj = {};
+    let oneArray = []
+    let twoArray = []
+
+   for(let num of array){
+          if(countObj[num]){
+              countObj[num]++
+          }else{
+              countObj[num] = 1
+          }
+   }
+   console.log(countObj);
+
+   for(let key in countObj){
+    if(countObj[key] === 1){
+        oneArray.push(Number(key))
+    }else if(countObj[key] === 2){
+        twoArray.push(Number(key))
+    }
+   }
+
+   return [oneArray, twoArray]
+}
+
+console.log(countOneAndTwo([1,2,3,4,5,6,6,2,9,9]));
