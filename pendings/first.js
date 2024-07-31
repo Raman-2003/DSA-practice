@@ -57,3 +57,33 @@ function largest(str){
 }
 
 console.log(largest("Raman Kishore Pooja Intelligent Small Angry"));
+
+
+// Remove duplicates
+function removeDuplicates(array){
+    let seen = new Set();
+    for(let i=0; i<array.length; i++){
+        if(seen.has(array[i])){
+            continue;
+        }else{
+            seen.add(array[i])
+        }
+    }
+    return seen;
+}
+
+console.log(removeDuplicates([1,2,33,33,4,5,5,6])); // { 1, 2, 33, 4, 5, 6 }
+
+/*
+Usage of ASCII values in JavaScript:
+1. Character to ASCII: The charCodeAt() method is used to get the ASCII value of a character.
+2. ASCII to Character: The String.fromCharCode() method converts ASCII values back to characters.
+3. Simple encryption: ASCII values are useful in implementing basic encryption algorithms like the Caesar cipher.
+
+Definition: 
+ASCII, which stands for American Standard Code for Information Interchange, is a character encoding standard used for 
+electronic communication. ASCII values are numerical representations assigned to characters, including letters, digits, 
+punctuation marks, and control characters.
+
+*/
+
