@@ -87,3 +87,70 @@ punctuation marks, and control characters.
 
 */
 
+// Two dimensional array => merged
+function twoDimen(array1, array2){
+    let i=0; 
+    let j=0;
+    let merged = [];
+    while(i<=array1.length && j<array2.length){
+        if(array1[i]<array2[j]){
+            merged.push(array1[i])
+            i++;
+        }else{
+            merged.push(array2[j]);
+            j++;
+        }
+    }
+    return merged;
+}
+
+console.log(twoDimen([1,2,3], [4,5,6]));  //[1,2,3,4,5,6]
+
+/*
+Jagged array also called as Ragged array and "array of arrays". Inside a single array, we can declare 
+a lot of mini arrays with different length. "Elements are stored like an array."
+*/
+
+let jaggedArray = [
+    [1,2,3],
+    [1,2,3,4,5],
+    [1,2],
+    [5,6,7,8,9, 'Armstrong']
+]
+
+console.log(jaggedArray[0][2]);  // 0th array la 2 element => "3"
+console.log(jaggedArray[1][0]);  // 1st array la 2 element => "1"
+console.log(jaggedArray[2][1]);  // 2nd array la 2 element => "2"
+console.log(jaggedArray[3][5]);  // 3rd array la 2 element => "Armstrong"
+
+
+
+// First non-repeating element without using buildin method.
+function countSingleOccur(array){
+    let obj = {};
+    for (let num of array){
+        if(obj[num]){
+            obj[num]++
+        }else{
+            obj[num] = 1;
+        }
+    }
+
+    for (let key in obj){
+        if(obj[key] === 1){
+            return key;
+        }
+    }
+    return -1;
+}
+
+console.log(countSingleOccur([1,2,3,3,4,5,1,2]));
+
+function pascalToSnake(str){
+    return str.replace(/([A-Z])/g, '_$1').toLowerCase().substring(1);
+}
+const test1 = pascalToSnake('PascalToSnake') 
+const test2 = pascalToSnake('RamanKishoreArmstrong')
+
+console.log(test1);
+console.log(test2);
