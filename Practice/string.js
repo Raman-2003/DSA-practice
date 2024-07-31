@@ -1,13 +1,11 @@
-// // function isPalindrome(str){
-// //     let reverse = str.split('').reverse().join('');
-// //     return reverse === str;
-// // }
-
-// // console.log(isPalindrome('racecar'));
-// // console.log(isPalindrome('hello'));
-
-// // const names = 'Raman'
-// // console.log(names[0]);  // "R". we can access letter of the string using index like an array.
+// function isPalindrome(str){
+//     let reverse = str.split('').reverse().join('');
+//     return reverse === str;
+// }
+// console.log(isPalindrome('racecar'));
+// console.log(isPalindrome('hello'));
+// const names = 'Raman'
+// console.log(names[0]);  // "R". we can access letter of the string using index like an array.
 
 
 // // // Occurence of letter in a string
@@ -83,7 +81,6 @@
 //     return maxLength
     
 // }
-
 
 // console.log(lengthOfLargestString('abcabcbb'));
 

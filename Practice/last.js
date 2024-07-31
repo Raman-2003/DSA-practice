@@ -551,3 +551,51 @@ function mergeTwoArraysWithoutBuildinMethod(array1, array2){
 }
 
 console.log(mergeTwoArraysWithoutBuildinMethod([1,2,3], [4,5,6]));
+
+
+function isPalindrome(str){
+    let reverse = str.split('').reverse().join('');
+    return reverse === str;
+}
+
+console.log(isPalindrome('Raman'));
+console.log(isPalindrome('racecar'));
+
+
+function countLetters(str,letter){
+    let count = 0;
+    for(let i=0; i<str.length; i++){
+        if(str[i] === letter){
+            count++
+        }
+    }
+    return count;
+}
+
+console.log(countLetters('Hello world', 'l'));
+
+function reverseString(str){
+    return str.split('').reverse().join('')
+}
+
+console.log(reverseString('Raman'));
+
+
+function largestSubString(str){
+    let start = 0;
+    let maxLength = 0;
+    let charSet = new Set();
+
+    for(let end=0; end<str.length; end++){
+        while(charSet.has(str[end])){
+            charSet.delete(str[start]);
+            start++
+        }
+        charSet.add(str[end]);
+        maxLength = Math.max(maxLength, end-start+1)
+    }
+    return maxLength;
+}
+
+
+console.log(largestString('abcabcbb'));
