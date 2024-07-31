@@ -171,3 +171,49 @@ console.log(test2);
   Convert to lowercase:         _another_example_here.
   Remove leading underscore:    another_example_here.
 */
+
+
+function recursion(n){
+    if(n<2){
+        return n;
+    }
+    return n*recursion(n-1)
+}
+console.log(recursion(3));
+console.log(recursion(4));
+console.log(recursion(5));
+
+
+// Reverse a string using Recursion
+function recursiveReverse(string){
+    if(string.length<=1){
+        return string;
+    }
+
+    return string[string.length -1] + recursiveReverse(string.substring(0, string.length-1))
+}
+
+console.log(recursiveReverse('EastWestNorth'));
+
+
+
+// Return middle element in an array
+function returnMiddle(array){
+    let left = 0;
+    let right = array.length;
+
+    while(left<=right){
+        let middle = Math.floor((array.length)/2);
+        if(middle%2===0){
+            return array[middle]
+        }else{
+            let newArr = [];
+            newArr.push(array[middle-1]);
+            newArr.push(array[middle])
+            return newArr
+        }
+    
+    }
+    
+}
+console.log(returnMiddle([1,2,3,4,5,6]));
