@@ -12,7 +12,7 @@
 // function findLargest(str){
 //     let largest = ''
 //     for(let i=0; i<str.length; i++){
-//         if(str[i]>largest.length){
+//         if(str[i].length>largest.length){
 //             largest = str[i]
 //         }
 //     }
@@ -337,7 +337,7 @@ function secondLargest(array){
     if(secondLargest === -Infinity){
         return "There is no second largest number"
     }
-    return secondLargest
+    return secondLargest;
 }
 
 console.log(secondLargest([10, 5, 8, 12, 3, 12, 7]));
@@ -450,3 +450,9 @@ function countOneAndTwo(array){
 }
 
 console.log(countOneAndTwo([1,2,3,4,5,6,6,2,9,9]));
+
+
+
+
+
+
