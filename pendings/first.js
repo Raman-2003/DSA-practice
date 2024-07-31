@@ -217,3 +217,13 @@ function returnMiddle(array){
     
 }
 console.log(returnMiddle([1,2,3,4,5,6]));
+
+
+// Merge two arrays
+function flaten(array1, array2){
+    let newArr = [];
+    newArr = [...array1, ...array2].flat(2)
+    return newArr
+}
+
+console.log(flaten([1,2,3],[4,5,6]));
