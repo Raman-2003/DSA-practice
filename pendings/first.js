@@ -222,8 +222,58 @@ console.log(returnMiddle([1,2,3,4,5,6]));
 // Merge two arrays
 function flaten(array1, array2){
     let newArr = [];
-    newArr = [...array1, ...array2].flat(2)
+    newArr = [...array1, ...array2].flat()  // optional thing => to give numbers inside flat method
     return newArr
 }
 
 console.log(flaten([1,2,3],[4,5,6]));
+
+
+function capitalLetter(string){
+    if(typeof string !== 'string' || string.length === 0){
+        return string;
+    }
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+}
+console.log(capitalLetter('alexanderbabu'));
+
+
+// Recursion will exit, once the count value reaches at 5
+function fiveTimeRecursion(value, count){
+    if(count>=5){
+        return value;
+    }
+    return fiveTimeRecursion(value+1, count+1)
+}
+
+console.log(fiveTimeRecursion(0,0));
+
+
+//Efficient
+function fibonacci(num){
+    if(num<2){
+        return num;
+    }
+    let fib = [0,1];
+    for(let i=2; i<=num; i++){
+        fib[i] = fib[i-1] + fib[i-2]
+    }
+    return fib[num]
+}
+
+console.log(fibonacci(3));
+console.log(fibonacci(4));
+console.log(fibonacci(55));
+
+
+
+// It holds a weak reference to that particular object that we passed into the WeakRef() constructor.
+// We can access the WeakRef object using "deref()" method. ECMAScript 2021
+//Create a WeakRef() object.
+const obj = {
+    name: 'Raman Armstrong',
+    age: 21
+}
+
+const weakRef = new WeakRef(obj);
+console.log(weakRef.deref());
