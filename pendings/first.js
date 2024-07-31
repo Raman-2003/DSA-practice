@@ -146,6 +146,8 @@ function countSingleOccur(array){
 
 console.log(countSingleOccur([1,2,3,3,4,5,1,2]));
 
+
+// Pascal Case to Snake case.
 function pascalToSnake(str){
     return str.replace(/([A-Z])/g, '_$1').toLowerCase().substring(1);
 }
@@ -154,3 +156,18 @@ const test2 = pascalToSnake('RamanKishoreArmstrong')
 
 console.log(test1);
 console.log(test2);
+
+/*      Explanation:
+    /([A-Z])/g matches all capital letters in the string.
+    The replace method inserts an underscore before each capital letter. The $1 refers to the matched capital letter.
+    toLowerCase method converts the entire string to lowercase.
+    substring(1) method removes the leading underscore that is added at the start of the string.
+
+    step by step implement    
+    
+    For AnotherExampleHere:
+  Match each capital letter:    A, E, H.
+  Insert underscores:           _A_nother_E_xample_H_ere.
+  Convert to lowercase:         _another_example_here.
+  Remove leading underscore:    another_example_here.
+*/
