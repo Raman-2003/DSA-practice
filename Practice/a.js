@@ -426,3 +426,194 @@ function largest(string){
 }
 console.log(largest("Ice Cream Chacolate Candies"));
 
+function removeDuplicates(array){
+    let seen = new Set();
+    for(let i=0; i<array.length; i++){
+        if(seen.has(array[i])){
+            continue;
+        }else{
+            seen.add(array[i])
+        }
+    }
+    return seen;
+}
+
+console.log(removeDuplicates([1,2,33,33,4,5,5,6]));
+
+
+function twoDimen(array1, array2){
+    let i=0; 
+    let j=0;
+    let merged = [];
+
+    while(i<array1.length && j<array2.length){
+        if(array1[i]<array2[j]){
+            merged.push(array1[i])
+            i++
+        }else{
+            merged.push(array2[j]);
+            j++
+        }
+    }
+
+    while(i<array1.length){
+        merged.push(array1[i])
+        i++
+    }
+
+    while(j<array2.length){
+        merged.push(array2[j]);
+        j++;
+    }
+
+    return merged;
+}   
+
+console.log(twoDimen([1,2,3],[4,5,6,7]));
+
+
+function FirstOccurence(array){
+    let obj = {}
+    for(let num of array){
+        if(obj[num]){
+            obj[num]++
+        }else{
+            obj[num] = 1;
+        }
+    }
+
+
+    for(let key in obj){
+        if(obj[key] === 1){
+            return key;
+        }
+    }
+}
+
+console.log(FirstOccurence([1,2,3,3,4,4,5,1,2]));
+
+
+
+function pascalToSnake(string){
+    return string.replace(/([A-Z])/g, '_$1').toLowerCase().substring(1)
+}
+
+console.log(pascalToSnake('RamanKishoreArmstrong'));
+console.log(pascalToSnake('AlwaysThinkingAboutUpgrade'));
+
+
+function recursionReverse(string){
+    if(string.length<=1) return string;
+
+   return string[string.length-1] + recursionReverse(string.substring(0, string.length-1))
+}
+
+console.log(recursionReverse('Raman'));
+
+
+function middleElement(array){
+        if(array.length<=2){
+            return array;
+        }else{
+            let middle  = Math.floor((array.length)/2);
+            if(middle%2===0){
+                return array[middle]
+            }else{
+                let news = [];
+                news.push(array[middle-1])
+                news.push(array[middle])
+                return news;
+            }
+        }
+
+}
+
+console.log(middleElement([1,2,3,4,5,6]));
+
+
+
+function secondLargest(array){
+    let largest = -Infinity
+    let secondLargest = -Infinity;
+
+    for(let i=0; i<array.length; i++){
+        if(array[i]>largest){
+            secondLargest = largest;
+            largest = array[i]
+        }else if(array[i]>secondLargest && array[i]<largest){
+            secondLargest = array[i]
+        }
+    }
+    return secondLargest
+}
+
+console.log(secondLargest([1,2,3,4,5,6,7]));
+
+
+function isSorted(array){
+    if(array.length<=1) return false;
+    let ascending = true;
+    let descending = true;
+
+    for(let i=0; i<array.length; i++){
+        if(array[i]<array[i-1]){
+            ascending = false;
+        }
+
+        if(array[i]>array[i-1]){
+            descending = false;
+        }
+
+        if(!ascending && !descending){
+            return false
+        }
+    }
+    return true;
+}
+
+console.log(isSorted([1,2,3,4,5,878,96]));
+
+
+function consecutive(array){
+    let start = 0;
+    let newArr = [];
+
+    for(let i=0; i<array.length; i++){
+        if(newArr.includes(array[i])){
+            array[start]
+        }else{
+            newArr.push(array[i])
+        }
+    }
+    return newArr
+}
+
+console.log(consecutive([1,2,3,1,2,3,4,1,2,4,5,6]));
+
+
+function countOneAndTwo(array){
+    let obj = {}
+    let arr1 = []
+    let arr2 = []
+
+    for(let num of array){
+        if(obj[num]){
+            obj[num]++
+        }else{
+            obj[num]=1;
+        }
+    }
+
+    for(let key in obj){
+        if(obj[key] === 1){
+            arr1.push(Number(key))
+        }else if(obj[key] === 2){
+            arr2.push(Number(key))
+        }
+    }
+
+    return [arr1,arr2]
+}
+
+
+console.log(countOneAndTwo([1,2,3,4,5,6,6,2,9,9]));
