@@ -31,3 +31,28 @@ Tree terminolgy:
 Refer all images in Terminologies
 
 */
+
+
+
+
+
+
+/*      Binary tree and Binary search tree
+
+Binary tree => It is a tree data structure. In each node contains atleast two childrens. They are called as left and right child. 
+                
+Binary search tree (BST) => It is kind of binary tree with additional two properties. 
+        The value of each left node must be smaller than the root node.
+        The value of each right node must be greater than the root node.
+
+Insertion => To add a node to the tree
+Searching => To find a node given its value.
+DFS & BFS => To visit all nodes in the tree.
+Deletion => To remove a node given its value.  Refer BT & BST image folder.
+
+Useful for Searching, sorting and implement abstract data types as lookup tables and priority queues.
+
+Know about more BST binary search tree
+
+*/
+
