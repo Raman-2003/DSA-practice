@@ -232,87 +232,86 @@
 
 //////  SOME NEW WAYS TO IMPLEMEMT LOGICS
 
-// class Node{
-//     constructor(value){
-//         this.value = value;
-//         this.next = null;
-//     }
-// }
+ class Node{
+     constructor(value){
+         this.value = value;
+         this.next = null;
+     }
+ }
 
-// class newWays{
-//     constructor(){
-//         this.head = null;
-//         this.size = 0;
-//     }
+ class newWays{
+     constructor(){
+         this.head = null;
+         this.size = 0;
+     }
+     isEmpty(){
+        return this.size === 0
+    }
 
-//     isEmpty(){
-//        return this.size === 0
-//     }
+    getSize(){
+        return this.size;
+    }
 
-//     getSize(){
-//         return this.size;
-//     }
-
-//     addAnElement(value){
-//         let node = new Node(value);
-//         if(this.head === null){
-//             this.head = node;
-//         }else{
-//            let curr = this.head;
-//            while(curr.next !== null){
-//               curr = curr.next;
-//            }
-//            curr.next = node;
-//         }
-//         this.size++
-//     }
+    addAnElement(value){
+        let node = new Node(value);
+        if(this.head === null){
+            this.head = node;
+        }else{
+           let curr = this.head;
+           while(curr.next !== null){
+              curr = curr.next;
+           }
+           curr.next = node;
+        }
+        this.size++
+    }
  
-//        removeDuplicates(){
-//             if(this.head === null){
-//                 return null;
-//             }
+       removeDuplicates(){
+            if(this.head === null){
+                return null;
+            }
+            let seen = new Set();
+            let curr = this.head;
+            seen.add(curr.value);
+            
+            while(curr.next !== null){
+                if(seen.has(curr.next.value)){
+                    curr = curr.next.next;
+                    this.size--    
+                }else{
+                    seen.add(curr.next.value);
+                    curr = curr.next;
+                    }
+            }
+            return seen;
+        }
+       
 
-//             let seenValues = new Set();
-//             let current = this.head;
-//             seenValues.add(current.value);
-
-//             while(current.next !== null){
-//                 if(seenValues.has(current.next.value)){
-//                     current = current.next.next
-//                     this.size--
-//                 }else{
-//                     seenValues.add(current.next.value);
-//                     current = current.next;
-//                 }
-//             }
-//             return seenValues;
-//         }
-
-//     print(){
-//         if(this.isEmpty()){
-//             console.log('List is Emtpy');
-//         }
-//         let curr = this.head;
-//         let listedValues = ''
-//         while(curr){
-//             listedValues += `${curr.value} `
-//             curr = curr.next;
-//         }
-//         console.log(listedValues);
-//     }
-// }
+    print(){
+        if(this.isEmpty()){
+            console.log('List is Emtpy');
+        }
+        let curr = this.head;
+        let listedValues = ''
+        while(curr){
+            listedValues += `${curr.value} `
+            curr = curr.next;
+        }
+        console.log(listedValues);
+    }
+}
 
 
-// const list = new newWays()
-// list.addAnElement(10)
-// list.addAnElement(20)
-// list.addAnElement(30)
-// list.addAnElement(30)
-// list.addAnElement(30)
+const list = new newWays()
+list.addAnElement(10)
+list.addAnElement(20)
+list.addAnElement(30)
+list.addAnElement(30)
+list.addAnElement(30)
 
-// list.print()
+list.print()
 
-// console.log(list.removeDuplicates())
+console.log(list.removeDuplicates())
 
 
 
@@ -394,23 +393,23 @@
 
 
 
-// function binarySearch(array, target){
-//     let left = 0;
-//     let right = array.length-1;
+function binarySearch(array, target){
+    let left = 0;
+    let right = array.length-1;
 
-//     while(left<=right){
-//         let middleIndex = Math.floor((left+right)/2)
-//         if(target === array[middleIndex]){
-//             return middleIndex;
-//         }
-//         if(target < array[middleIndex]){
-//             right = middleIndex-1;
-//         }else{
-//             left = middleIndex+1;
-//         }
-//     }
-//     return -1;
-// }
+    while(left<=right){
+        let middleIndex = Math.floor((left+right)/2)
+        if(target === array[middleIndex]){
+            return middleIndex;
+        }
+        if(target < array[middleIndex]){
+            right = middleIndex-1;
+        }else{
+            left = middleIndex+1;
+        }
+    }
+    return -1;
+}
 
 
 // console.log(binarySearch([-5, 2, 4, 6, 10], 6));
@@ -469,22 +468,21 @@
 
 
 
-// // Swapping is a good option for this one compare with prev and next
-// function reverseArray(array){
-//     let start = 0;
-//     let end = array.length-1;
+// Swapping is a good option for this one compare with prev and next
+function reverseArray(array){
+    let start = 0;
+    let end = array.length-1;
+    while(start<=end){
+        let temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+        start++
+        end--
+    }
+    return array;
+}
 
-//     while(start<end){
-//         let temp = array[start];
-//         array[start] = array[end];
-//         array[end] = temp;
-//         start++
-//         end-- 
-//     }
-//     return array
-// }
-
-// console.log(reverseArray([1,2,3,4,5]));
+console.log(reverseArray([1,2,3,4,5]));
 
 
 // // Count occurence of the target element
@@ -502,100 +500,100 @@
 
 
 
-function removeDup(array){
-    let unique = [];
+// function removeDup(array){
+//     let unique = [];
 
-    for(let i=0; i<array.length; i++){
-        if(!unique.includes(array[i])){
-            unique.push(array[i])
-        }
-    }
-    return unique;
-}
+//     for(let i=0; i<array.length; i++){
+//         if(!unique.includes(array[i])){
+//             unique.push(array[i])
+//         }
+//     }
+//     return unique;
+// }
 
-console.log(removeDup([1,2,3,3,3,4,4,5]));
-
-
-
-function newWaytoRemoveDup(array){
-    const seen = new Set();
-
-    for(let i=0; i<array.length; i++){
-        if(seen.has(array[i])){
-            continue;
-        }else{
-            seen.add(array[i])
-        }
-    }
-    return seen;
-}
-
-console.log(newWaytoRemoveDup([1,2,3,3,3,4,4,5]));
+// console.log(removeDup([1,2,3,3,3,4,4,5]));
 
 
-// Practical fail practice
 
-function mergeTwoArraysWithoutBuildinMethod(array1, array2){
-        let mergedArray = [];
-        let i=0; j=0;
-        while(i<=array1.length && j<array2.length){  // = is must heree to keep maintains the adjacant value joining
-            if(array1[i]<array2[j]){
-                mergedArray.push(array1[i]);
-                i++;
-            }else{
-                mergedArray.push(array2[j]);
-                j++;
-            }
-        }
-        return mergedArray;
-}
+// function newWaytoRemoveDup(array){
+//     const seen = new Set();
 
-console.log(mergeTwoArraysWithoutBuildinMethod([1,2,3], [4,5,6]));
+//     for(let i=0; i<array.length; i++){
+//         if(seen.has(array[i])){
+//             continue;
+//         }else{
+//             seen.add(array[i])
+//         }
+//     }
+//     return seen;
+// }
+
+// console.log(newWaytoRemoveDup([1,2,3,3,3,4,4,5]));
 
 
-function isPalindrome(str){
-    let reverse = str.split('').reverse().join('');
-    return reverse === str;
-}
+// // Practical fail practice
 
-console.log(isPalindrome('Raman'));
-console.log(isPalindrome('racecar'));
+// function mergeTwoArraysWithoutBuildinMethod(array1, array2){
+//         let mergedArray = [];
+//         let i=0; j=0;
+//         while(i<=array1.length && j<array2.length){  // = is must heree to keep maintains the adjacant value joining
+//             if(array1[i]<array2[j]){
+//                 mergedArray.push(array1[i]);
+//                 i++;
+//             }else{
+//                 mergedArray.push(array2[j]);
+//                 j++;
+//             }
+//         }
+//         return mergedArray;
+// }
 
-
-function countLetters(str,letter){
-    let count = 0;
-    for(let i=0; i<str.length; i++){
-        if(str[i] === letter){
-            count++
-        }
-    }
-    return count;
-}
-
-console.log(countLetters('Hello world', 'l'));
-
-function reverseString(str){
-    return str.split('').reverse().join('')
-}
-
-console.log(reverseString('Raman'));
+// console.log(mergeTwoArraysWithoutBuildinMethod([1,2,3], [4,5,6]));
 
 
-function largestSubString(str){
-    let start = 0;
-    let maxLength = 0;
-    let charSet = new Set();
+// function isPalindrome(str){
+//     let reverse = str.split('').reverse().join('');
+//     return reverse === str;
+// }
 
-    for(let end=0; end<str.length; end++){
-        while(charSet.has(str[end])){
-            charSet.delete(str[start]);
-            start++
-        }
-        charSet.add(str[end]);
-        maxLength = Math.max(maxLength, end-start+1)
-    }
-    return maxLength;
-}
+// console.log(isPalindrome('Raman'));
+// console.log(isPalindrome('racecar'));
 
 
-console.log(largestString('abcabcbb'));
+// function countLetters(str,letter){
+//     let count = 0;
+//     for(let i=0; i<str.length; i++){
+//         if(str[i] === letter){
+//             count++
+//         }
+//     }
+//     return count;
+// }
+
+// console.log(countLetters('Hello world', 'l'));
+
+// function reverseString(str){
+//     return str.split('').reverse().join('')
+// }
+
+// console.log(reverseString('Raman'));
+
+
+// function largestSubString(str){
+//     let start = 0;
+//     let maxLength = 0;
+//     let charSet = new Set();
+
+//     for(let end=0; end<str.length; end++){
+//         while(charSet.has(str[end])){
+//             charSet.delete(str[start]);
+//             start++
+//         }
+//         charSet.add(str[end]);
+//         maxLength = Math.max(maxLength, end-start+1)
+//     }
+//     return maxLength;
+// }
+
+
+// console.log(largestString('abcabcbb'));
