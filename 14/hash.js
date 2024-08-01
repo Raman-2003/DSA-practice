@@ -60,3 +60,26 @@ console.log(result.get('city'))
 
 result.set('mane', 'krish');  // Here is a bug. It overwrites the former name key. previous key is "name" => charCodeAt is 17. "mane" => Also have same charCodeAt = 17.
 result.print()                // So, it has overwrite the different value in the existing same key. It leads to we might loss the previous name "Raman".
+// It is called COLLISIONS
+
+
+const str = "The quick brown fox jumps over the lazy dog"
+console.log(str.indexOf('o', 15)) // 17
+
+/*
+indexOf() => The indexOf method in JavaScript returns the index of the 
+first occurrence of a specified value in a string. The method can also 
+take a second argument, which specifies the position in the string to start the search.
+
+let sample = 'Hello'
+console.log(sample.indexOf('H'))  // 0
+*/
+
+
+/* charCodeAt()
+It returns the ASCII value of the particular character in the string
+
+let sample = 'Hello'
+console.log(sample.charCodeAt(0))  // H => AsSCCI of 72
+console.log(sample.charCodeAt(0))  // e => AsSCCI of 101
+*/
