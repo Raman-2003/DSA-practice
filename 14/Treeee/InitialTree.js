@@ -103,6 +103,26 @@ class binarySearchTree{
 
     }
 
+    // Find minimum and maximum value in the tree.
+    min(root){  // It accepts the root node as a parameter. 
+        if(!root.left){  // Here we need to take 2 cases. First check if it has a left sub tree nodes. If not, simply return its root's value.
+            return root.value
+        }else{  // If not
+            return this.min(root.left)  // It traverse at the leftmost node and there is no further left node, it satisfies with the base of "if" condition and return the current root value. "If is a base case here"
+        }  // Else is a recursive call for traversal.
+    }
+
+    max(root){
+        if(!root.right){  // It does not have any right sub tree nodes. We return root base value
+            return root.value;
+        }else{  // If it does contain right tree nodes, we use recursion to traversal for the rightMost value. Once it reaches the last right node, it satosfies with base case and returns the value.
+            return this.max(root.right);  
+        }
+    }
+
+    // Delete a node from the tree using its value.
+
+
 }
 
 const bst = new binarySearchTree()
@@ -126,8 +146,10 @@ bst.postOrder(bst.root)  // 3 5 7 15 10
 console.log();
 console.log();
 bst.levelOrder()      // 10 5 15 3 7
-
-
+console.log();
+console.log();
+console.log(bst.min(bst.root));  // 3
+console.log(bst.max(bst.root));  // 15
 
 
 
@@ -172,5 +194,21 @@ As long as a node exists in the queue =>
   Dequeue the node from the front
   Read the node value
   Enqueue at left and right side.
+
+
+Find minimum and maximum value in the node.
+As we know that, last left node is always smaller than the parent's node. And the last depth node is smaller than its parent's value.
+By this logic, we can easily find out that, "Left most value is the smallest value in the tree and the right most value is the largest value in the tree."
+Refer image => min and max.png
+
+Delete a node from the tree using its value.
+Basically we have three nodes.
+1. the node to be deleted has no leaf nodes(the delete node has no further nodes) delete1.png
+2. the node to be deleted has one leaf node(the delete node has one further node) delete2.png
+    Remove the node and replace it with its child value. This case is both applicable for left and right tree. 
+
+3. the node to be deleted has two leaf nodes. delete3.png. We remove the base node and replace with its in-order successor.
+   In a binary search tree the inorder successor is a node  with the least value in its right subtree.
+   
 
 */
