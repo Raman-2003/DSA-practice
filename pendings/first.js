@@ -5,8 +5,8 @@
 //     return str.reduce((curr, accu)=>accu.length > curr.length? accu : curr)
 // }
 
-// const array = ['Ice', 'Cream', 'Chacolate', 'Candies']
-// console.log(largestString(array));  // Chacolate
+// const arrayss = ['Ice', 'Cream', 'Chacolate', 'Candies']
+// console.log(largestString(arrayss));  // Chacolate
 
 // // Without using Build-in
 // function findLargest(str){
@@ -43,7 +43,7 @@
 //     let largest = ''
 //     let currentWord = ''
 
-//     for(let i=0; i<str.length; i++){
+//     for(let i=0; i<=str.length; i++){
 //         if(str[i] === ' ' || i === str.length){
 //             if(currentWord.length > largest.length){
 //                 largest = currentWord;

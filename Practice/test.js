@@ -119,3 +119,12 @@ function regexFinder(str, substr){
 
 let str = 'hihihellohellohihihihihellohellohello'
 console.log(regexFinder(str, 'hi'));
+
+
+// split
+function anotherWay(string, substr){
+    return string.split(substr).length-1
+}
+
+let string = 'hihihellohellohihihihihellohellohello'
+console.log(anotherWay(string, 'hi'));
